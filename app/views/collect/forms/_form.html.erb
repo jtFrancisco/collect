@@ -1,4 +1,16 @@
 <%= form_for @form do |f| %>  
+
+  <% if @form.errors.any? %>
+    <h4>Errors in the form!</h4>
+    <ul style="padding-bottom: 20px;">
+      <% @form.errors.full_messages.each do |msg| %>
+        <li>
+          <%= msg %>
+        </li>
+      <% end %>  
+    </ul>
+  <% end %>
+
   <p>
     <%= f.label :name %>
     <%= f.text_field :name, required: true %>

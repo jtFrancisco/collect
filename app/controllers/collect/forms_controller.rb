@@ -2,7 +2,19 @@ require_dependency "collect/application_controller"
 
 module Collect
   class FormsController < ApplicationController
-    
+
+    # This CRUD controller lets you manage the forms
+    # that you can download in the ODK Collect mobile app.
+
+    # Each form has a name, description, and an xml document attached with active storage
+    # The xml document must be type xml, because ODK Collect only works with xml forms.
+    # You must create an XLS form using an Excel spreadsheet according to this documentation:
+    # https://xlsform.org/en/
+    # Then convert the XLS form into an xml document with this converter:
+    # https://getodk.org/xlsform/
+    # Once you have a form prepared in the xml format, then upload it here:
+    # http://localhost:3000/collect/forms/new
+
     def index
       @forms = Form.order(created_at: :desc)        
     end
@@ -18,10 +30,10 @@ module Collect
     def create
       @form = Form.new(form_params)
       if @form.save
-        flash[:success] = "Form was saved."
+        flash[:notice] = "Form was saved."
         redirect_to form_path(@form)
       else
-        flash[:error] = "Form could not be saved."
+        flash[:notice] = "Form could not be saved."
         render 'new'
       end
     end
@@ -33,10 +45,10 @@ module Collect
     def update
       @form = Form.find(params[:id])
       if @form.update(form_params)
-        flash[:success] = "Form was updated."
+        flash[:notice] = "Form was updated."
         redirect_to form_path(@form)
       else
-        flash[:error] = "Form could not be updated."
+        flash[:notice] = "Form could not be updated."
         render 'edit'
       end
     end
@@ -45,10 +57,10 @@ module Collect
       @form = Form.find(params[:id])
       @form.destroy
       if @form.destroy      
-        flash[:success] = "Form was destroyed."
+        flash[:notice] = "Form was destroyed."
         redirect_to forms_path
       else
-        flash[:success] = "Form could not be destroyed."
+        flash[:notice] = "Form could not be destroyed."
         redirect_to form_path(@form)
       end
     end

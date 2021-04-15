@@ -1,10 +1,29 @@
 module Collect
   class Form < ApplicationRecord
 
+    # Each form has a name, description, and an xml document attached with active storage
+    # The xml document must be type xml, because ODK Collect only works with xml forms.
+    # You must create an XLS form using an Excel spreadsheet according to this documentation:
+    # https://xlsform.org/en/
+    # Then convert the XLS form into an xml document with this converter:
+    # https://getodk.org/xlsform/
+    # Once you have a form prepared in the xml format, then upload it here:
+    # http://localhost:3000/collect/forms/new
+
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
 
-    has_one_attached :document
+    has_one_attached :document, dependent: :destroy
+
+    validate :correct_document_mime_type
+
+    private
+
+      def correct_document_mime_type
+        if !document.attached? || !document.content_type.in?(%w(application/xml))
+          errors.add(:document, 'invalid! The file must be an XML file.')
+        end
+      end
 
   end
 end
