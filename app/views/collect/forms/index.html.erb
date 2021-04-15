@@ -1,0 +1,29 @@
+<h1>Forms</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>XML Form</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forms.each do |xml_form| %>
+      <tr>
+        <td><%= xml_form.name %></td>
+        <td>
+          <% if xml_form.document.attached? %>
+            <%= xml_form.document.filename %>
+          <% else %>
+            No File Attached
+          <% end %>
+        </td>
+        <td><%= link_to "Show", form_path(xml_form) %></td>
+        <td><%= link_to "Edit", edit_form_path(xml_form) %></td>
+        <td><%= link_to "Destroy", form_path(xml_form), method: :delete, data: { confirm: "Are you sure you want to delete this form?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Form', new_form_path %>

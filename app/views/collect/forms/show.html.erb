@@ -1,0 +1,24 @@
+<h1><%= link_to "Forms", forms_path %> / <%= @form.name %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>XML Form</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @form.name %></td>
+      <td>
+        <% if @form.document.attached? %>
+          <%= @form.document.filename %>
+        <% else %>
+          No File Attached
+        <% end %>
+      </td>
+      <td><%= link_to "Edit", edit_form_path(@form) %></td>
+      <td><%= link_to "Destroy", form_path(@form), method: :delete, data: { confirm: "Are you sure you want to delete this form?" } %></td>
+    </tr>
+  </tbody>
+</table>

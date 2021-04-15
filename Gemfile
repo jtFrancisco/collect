@@ -8,5 +8,9 @@ group :development do
   gem 'pg'
 end
 
+group :test do
+  gem 'shoulda', '~> 4.0'
+end
+
 # To use a debugger
 # gem 'byebug', group: [:development, :test]

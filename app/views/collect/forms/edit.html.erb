@@ -1,0 +1,22 @@
+<h1><%= link_to "Forms", forms_path %> / <%= link_to @form.name, form_path(@form) %> / Edit</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>XML Form</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @form.name %></td>
+      <td>
+        <% if @form.document.attached? %>
+          <%= @form.document.filename %>
+        <% else %>
+          No File Attached
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<%= render 'form', form: @form %>

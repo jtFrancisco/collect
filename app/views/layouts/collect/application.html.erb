@@ -5,11 +5,23 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    "collect/application", media: "all" %>
+  <%= stylesheet_link_tag "collect/application", media: "all" %>
+  <style>
+    table{
+      border-collapse: collapse;
+    }
+    td{
+      border: 1px solid #000;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
 
-<%= yield %>
+  <div style="padding: 40px 0 0 60px;">
+    <p id="notice"><%= notice %></p>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
