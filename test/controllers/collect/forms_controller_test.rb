@@ -2,7 +2,6 @@ require "test_helper"
 
 module Collect
   class FormsControllerTest < ActionDispatch::IntegrationTest
-    
     include Engine.routes.url_helpers
 
     setup do

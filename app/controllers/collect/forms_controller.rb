@@ -1,17 +1,36 @@
 module Collect
   class FormsController < ApplicationController
 
-    # This CRUD controller lets you manage the forms
-    # that you can download in the ODK Collect mobile app.
+    # This controller lets you manage forms.
+    # Forms can be download in the ODK Collect mobile app.
 
-    # Each form has a name, description, and an xml document attached with active storage
-    # The xml document must be type xml, because ODK Collect only works with xml forms.
-    # You must create an XLS form using an Excel spreadsheet according to this documentation:
+    # A Form has:
+    # name
+    # description
+    # document (attached with active storage).
+    # 
+    # The document must be type xml because:
+    # ODK Collect uses the xml document to display the Form in the ODK Collect mobile app.
+    
+    # Step 1: Create an XLS form using an Excel spreadsheet according to this documentation:
+    # Use the example in:
+    # /test/fixtures/files/tree_survey.xlsx
+    # See xlsform docs:
     # https://xlsform.org/en/
-    # Then convert the XLS form into an xml document with this converter:
+    # 
+    # Step: 2. Convert the XLS form into an xml document with this converter:
     # https://getodk.org/xlsform/
-    # Once you have a form prepared in the xml format, then upload it here:
+    # If you use the tree_survey.xlsx file from step 2 your output is a file like this:
+    # /test/fixtures/files/tree_survey.xml
+    #
+    # Step 3: Go to:
+    # http://localhost:3000/collect/forms/
+    # 
+    # Step 4: Click "New Form"
     # http://localhost:3000/collect/forms/new
+    # 
+    # Step 5: Save the name, description, and upload the form xml document:
+    # The file from: /test/fixtures/files/tree_survey.xml
 
     def index
       @forms = Form.order(created_at: :desc)        

@@ -12,5 +12,7 @@ group :test do
   gem 'shoulda', '~> 4.0'
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 # To use a debugger
 # gem 'byebug', group: [:development, :test]

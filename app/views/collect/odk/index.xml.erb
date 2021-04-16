@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<xforms xmlns="http://openrosa.org/xforms/xformsList">
+  <% @forms.each do |file| %>
+  <xform>
+    <formID><%= file.id %></formID>
+    <name><%= file.name %></name>
+    <version><%= file.updated_at.to_i %></version>
+    <hash>md5:c28fc778a9291672badee04ac880a05d</hash>
+    <descriptionText><%= file.description %></descriptionText>
+    <!--<downloadUrl>https://progis.herokuapp.com/skooter/odk/<%#= file.id %></downloadUrl>-->
+    <downloadUrl><%= ENV['DOMAIN'] %>/skooter/odk/<%= file.id %></downloadUrl>
+  </xform>
+  <% end %>
+</xforms>

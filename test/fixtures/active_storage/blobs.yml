@@ -1,6 +1,6 @@
 xml:
   key: '12345'
-  filename: 'test.pdf'
+  filename: 'test.xml'
   content_type: 'application/xml'
   byte_size: 373
   checksum: eSMAQ6qXKc7+UO8oxx19dw==
