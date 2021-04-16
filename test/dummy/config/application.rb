@@ -9,6 +9,9 @@ require "collect"
 
 module Dummy
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     config.load_defaults Rails::VERSION::STRING.to_f
 
     # Configuration for the application, engines, and railties goes here.

@@ -15,4 +15,6 @@ end
 gem 'dotenv-rails', groups: [:development, :test]
 
 # To use a debugger
-# gem 'byebug', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
+gem 'crack'
+gem "responders"

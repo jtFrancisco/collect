@@ -7,11 +7,10 @@ module Collect
       base.respond_to :xml
     end
 
-    def index      
-      @forms = Collect::Form.order(:name)
+    def index
+      @forms = Collect::Form.all
       respond_to do |format|
-        # format.xml { render 'index.xml' }
-        format.xml { render(xml: "index") }
+        format.xml { render 'index.xml' }
       end
     end
 
