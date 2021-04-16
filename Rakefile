@@ -1,4 +1,21 @@
-require "bundler/setup"
+# require "bundler/setup"
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must run `gem install bundler` or `bundle install` to run rake tasks'
+end
+
+require 'rdoc/task'
+
+RDoc::Task.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'Collect'
+  rdoc.options << '--line-numbers'
+  rdoc.rdoc_files.include('README.md')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+
 
 APP_RAKEFILE = File.expand_path("test/dummy/Rakefile", __dir__)
 load "rails/tasks/engine.rake"

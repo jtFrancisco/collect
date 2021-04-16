@@ -1,19 +1,14 @@
 module Collect
   class OdkController < ApplicationController
 
-    def index      
-      @forms = Skooter::Form.order(:name)
-      respond_to do |format|
-        format.xml { render 'index.xml' }
-      end
-    end
-
-    private
-
-      def set_header
-        response.headers['X-OpenRosa-Version'] = '1'
-        response.headers['Content-Type'] = 'text/xml; charset=utf-8'
-      end
+    ## Resource for use ActiveSupport Concerns in order to make overwritable methods for ODK
+    # Source
+    # http://stackoverflow.com/questions/7719633/how-to-extend-rails-engines-controllers-properly
+    # http://edgeguides.rubyonrails.org/engines.html#overriding-models-and-controllers
+    ##
+    ##
+    ## Github Gist: https://gist.github.com/trejo08/11df06b3c6ff8fa26c610447005b721f
+    include Collect::BaseOdkControllerActions
 
   end
 end

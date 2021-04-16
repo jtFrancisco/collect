@@ -2,7 +2,9 @@ PATH
   remote: .
   specs:
     collect (0.1.0)
+      rack-cors
       rails (~> 6.1.3, >= 6.1.3.1)
+      responders
 
 GEM
   remote: https://rubygems.org/
@@ -95,6 +97,8 @@ GEM
     pg (1.2.3)
     racc (1.5.2)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.1.3.1)
@@ -124,6 +128,9 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rake (13.0.3)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     shoulda (4.0.0)
       shoulda-context (~> 2.0)
       shoulda-matchers (~> 4.0)

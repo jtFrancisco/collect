@@ -4,8 +4,10 @@ module Collect
   class OdkControllerTest < ActionDispatch::IntegrationTest
     include Engine.routes.url_helpers
 
-    # test "the truth" do
-    #   assert true
-    # end
+    test "should get index" do
+      get odk_index_url
+      assert_response :success
+    end
+
   end
 end
