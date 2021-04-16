@@ -1,0 +1,5 @@
+one:
+  name: document
+  record_type: Form
+  record: one
+  blob: xml

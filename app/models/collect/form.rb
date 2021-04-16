@@ -1,8 +1,8 @@
 module Collect
   class Form < ApplicationRecord
 
-    # Each form has a name, description, and an xml document attached with active storage
-    # The xml document must be type xml, because ODK Collect only works with xml forms.
+    # Each form has a name, description, and .xml document attached with Active Storage
+    # The document must be a .xml file, because ODK Collect only works with xml.
     # You must create an XLS form using an Excel spreadsheet according to this documentation:
     # https://xlsform.org/en/
     # Then convert the XLS form into an xml document with this converter:
