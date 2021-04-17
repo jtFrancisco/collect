@@ -4,7 +4,11 @@ module Collect
     include Collect::BaseOdkControllerActions
     protect_from_forgery unless: -> { request.format.xml? }
     
-    ## Uncomment this before_action if you have authentication set up
+    ## !!!!! 
+    ## Uncomment the before_action :check_auth if you have authentication set up.
+    ## If you don't have authentication set up then anyone who knows your 
+    ## domain will be able to get forms and send submissions to your app.
+    ## !!!!!
     # before_action :check_auth
 
     def submissions

@@ -1,6 +1,10 @@
 module Collect
   class Form < ApplicationRecord
 
+    ## TO DO: add a callback that saves the updated_at in an array to populate xml forms w/ versions with:
+    ## listAllVersions 
+    ## see: https://docs.getodk.org/openrosa-form-list/
+
     ## Each form has: name, description, and .xml document attached with Active Storage
     ## The document must be a .xml file, because ODK Collect only works with xml.
     ## You must create an XLS form using an Excel spreadsheet according to this documentation:

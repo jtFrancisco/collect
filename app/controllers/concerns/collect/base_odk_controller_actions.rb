@@ -7,6 +7,15 @@ module Collect
       base.respond_to :xml
     end
 
+    ## The index action lets ODK Collect get a list of forms from your app
+    ## See this line in config/routes: get 'formList', to: 'odk#index', as: :odk, defaults: { format: 'xml' }
+    ## It works like this:
+    ## When a user selects "Get forms" in ODK Collect, ODK Collect sends a get request to this action
+    ## Each form in the list of foms has a <downloadUrl/> tag 
+    ## This tag lets ODK Collect know to look for the xml document in the show action below when the user clicks "Download blank forms" in ODK Collect
+    #
+    ## To see the xml layout of each form see:
+    ## views/collect/odk/index.xml.erb 
     def index
       @forms = Collect::Form.all
       respond_to do |format|
@@ -14,6 +23,12 @@ module Collect
       end
     end
 
+    ## The show action lets ODK Collect download the xml form from your server
+    ## It works like this:
+    ## Each xml form in the list of forms from the index action has a <downloadUrl/> tag
+    ## The downloadUrl tag makes ODK Collect send a get request to this action.
+    ## This action sends form's xml document to ODK Collect.
+    ## See the ODK Collec docs here for more info: https://docs.getodk.org/openrosa-form-list/
     def show
       doc = Collect::Form.find(params[:id])
       send_data doc.document.download, filename: doc.document.filename.to_s, content_type: doc.document.content_type
