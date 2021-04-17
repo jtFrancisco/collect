@@ -14,7 +14,5 @@ end
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'byebug', group: [:development, :test]
-
-## Are these here only for testing the dummy app or does the main app not need to have these installed
 gem 'crack'
 gem "responders"

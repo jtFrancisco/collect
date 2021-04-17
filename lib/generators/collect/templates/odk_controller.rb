@@ -76,8 +76,7 @@ module Collect
       def prepare_object(model, record)
         puts "==============> #{model}"
         case model
-        ## This 'example' must be the name of the form and xml file, 
-        ## example should be the name of the model in the example, too.
+        ## Change 'example' should be the name of the xlsform, 
         when 'example'
           set_example(record)
         else
