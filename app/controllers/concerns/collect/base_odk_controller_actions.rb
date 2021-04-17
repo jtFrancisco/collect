@@ -3,7 +3,7 @@ module Collect
     extend ActiveSupport::Concern
 
     def self.included(base)
-      base.before_action :set_header, only: %i[index submissions]
+      base.before_action :set_header, only: %i[index submission]
       base.respond_to :xml
     end
 
@@ -34,8 +34,8 @@ module Collect
       send_data doc.document.download, filename: doc.document.filename.to_s, content_type: doc.document.content_type
     end
 
-    def submissions
-      ## This submissions method is replaced by the 'submissions' method in: 
+    def submission
+      ## This submissions method is replaced by the 'submission' method in: 
       ## lib/generators/collect/templates/odk_controller.rb
 
       if request.method.eql?('POST')
