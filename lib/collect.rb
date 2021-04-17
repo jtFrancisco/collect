@@ -1,4 +1,4 @@
-# require "collect/version"
+require "collect/version"
 require "collect/engine"
 require 'collect/loader'
 
