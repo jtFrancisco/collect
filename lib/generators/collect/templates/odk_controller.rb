@@ -3,6 +3,8 @@ module Collect
   class OdkController < ApplicationController
     include Collect::BaseOdkControllerActions
     protect_from_forgery unless: -> { request.format.xml? }
+    
+    ## Uncomment this before_action if you have authentication set up
     # before_action :check_auth
 
     def submissions
@@ -29,28 +31,16 @@ module Collect
       puts "### XML Object: #{record}"
       puts "=======================XML Object======================="
 
-      country_team = User.where(email: record[:username]).first.country_team
-      country_team_id = country_team.id
-      # puts "country_team_id === #{country_team_id}"
-      exchange_rate = country_team.country.exchange_rate
-      # puts "exchange_rate === #{exchange_rate}"
-
       e = Example.new()
-        e.country_team_id = country_team_id
-        e.exchange_rate = exchange_rate
-        
-        e.age = record[:age]
-
+       e.species = record[:species]
         if record[:coordinates] == nil
           e.coordinates = {"lat"=>"0.0", "lng"=>"0.0"}
         else  
           e.coordinates = set_coordinates(record)
         end
-
         e.metadata = set_metadata(record)
       e
     end
-
 
     private
       def check_auth
@@ -71,11 +61,6 @@ module Collect
         end
       end
 
-      # def load_file(parameter_name)
-      #   path = params["#{parameter_name}"].path
-      #   File.exists?(path) ? File.open(path) : nil
-      # end
-
       def get_model(obj)
         obj.keys.first
       end
@@ -87,9 +72,8 @@ module Collect
       def prepare_object(model, record)
         puts "==============> #{model}"
         case model
-        # This 'example' must be the name of the xml file, the name, and the 
-        # description from http://localhost:3000/collect/forms
-        # example should be the name of the model in the example, too.
+        ## This 'example' must be the name of the form and xml file, 
+        ## example should be the name of the model in the example, too.
         when 'example'
           set_example(record)
         else
@@ -97,7 +81,7 @@ module Collect
         end unless model.nil? && record.nil?
       end
 
-      # set_metadata helps with saving metadata from ODK submissions
+      ## set_metadata helps with saving metadata from xlsform 'metadata' form fields
       def set_metadata(record)
         {
           start: record[:start],
@@ -111,7 +95,7 @@ module Collect
         }
       end
 
-      # set_coordinates helps with gps data coming from ODK submissions
+      ## set_coordinates helps with gps data coming from xlsform 'coordinates' form fields
       def set_coordinates(record)
         {
           lat: record[:coordinates].split(' ').first,

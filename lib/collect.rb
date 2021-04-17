@@ -3,5 +3,5 @@ require "collect/engine"
 require 'collect/loader'
 
 module Collect
-  # Your code goes here...
+  ## Your code goes here...
 end

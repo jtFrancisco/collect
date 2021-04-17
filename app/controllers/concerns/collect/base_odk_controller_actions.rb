@@ -20,12 +20,14 @@ module Collect
     end
 
     def submissions
+      ## This submissions method is replaced by the 'submissions' method in: 
+      ## lib/generators/collect/templates/odk_controller.rb
+
       if request.method.eql?('POST')
-        # put your logic code here like the below example
+        ## put your logic code here like the below example
         # hash = Crack::XML.parse(File.read(params[:xml_submission_file].path))
         # model = set_model(hash)
         model = 'nothing_device'
-
         if model != 'device_id'
         #   object = prepare_object(model, hash)
         #   form = "Demo::#{model.singularize.camelize}".constantize.new(object)
@@ -50,5 +52,6 @@ module Collect
         response.headers['X-OpenRosa-Version'] = '1'
         response.headers['Content-Type'] = 'text/xml; charset=utf-8'
       end
+
   end
 end

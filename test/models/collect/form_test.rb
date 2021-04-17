@@ -3,7 +3,7 @@ require "test_helper"
 module Collect
   class FormTest < ActiveSupport::TestCase
 
-    # to do: write test for correct_document_mime_type validation
+    ## to do: write test for correct_document_mime_type validation
 
     # def setup
     #   @form = collect_forms(:one)

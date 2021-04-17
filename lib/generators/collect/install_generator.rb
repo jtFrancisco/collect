@@ -23,23 +23,23 @@ module Collect
       def cors_code
 <<RUBY
 
-    ###############################
-    ##### gem 'collect' code begins
-    # This config area works with rack-cors gem, and allows requests to the API
-    # by any client provided that the request was requested by the app
-
-    # This may not be necessary in Rails 6.
-
-    # Another issue with Rails 6 is whitelisting the config.hosts in development.rb and production.rb
-    # see this article: https://www.fngtps.com/2019/rails6-blocked-host/
-    # In development.rb you can use:
-    # config.hosts.clear
-
-    # In production.rb you can:
-    # Whitelist one hostname
-    # config.hosts << "hostname"
-    # Whitelist a test domain
-    # config.hosts << /application\.local\Z/
+    ##################################
+    #### gem 'collect' code begins
+    ## This config area works with rack-cors gem, and allows requests to the API
+    ## by any client provided that the request was requested by the app
+    #
+    ## This may not be necessary in Rails 6.
+    #
+    ## Another issue with Rails 6 is whitelisting the config.hosts in development.rb and production.rb
+    ## see this article: https://www.fngtps.com/2019/rails6-blocked-host/
+    ## In development.rb you can use:
+    ## config.hosts.clear
+    #
+    ## In production.rb you can:
+    ## Whitelist one hostname
+    ## config.hosts << "hostname"
+    ## Whitelist a test domain
+    ## config.hosts << /application\.local\Z/
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
@@ -47,8 +47,8 @@ module Collect
         resource '*', headers: :any, methods: [:get, :post, :options]
       end
     end
-    ##### gem 'collect' code ends
-    #############################
+    #### gem 'collect' code ends
+    ##################################
 
 RUBY
       end
