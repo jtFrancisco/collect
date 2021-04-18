@@ -2,7 +2,7 @@
 Collect is a gem for connecting [ODK Collect](https://docs.getodk.org/collect-intro/) forms to a Rails application.
 
 A step by step guide to create a working example app is available at:
-https://github.com/donBigote/collect/wiki/
+https://github.com/donBigote/collect/wiki/Example-App-Tutorial
 
 Browse an example app repo here:
 https://github.com/donBigote/collect_app
