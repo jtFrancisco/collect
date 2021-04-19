@@ -1,0 +1,9 @@
+Sat, 17 Apr 2021 18:23:48 -0600
+README.md	Sat, 17 Apr 2021 18:18:55 -0600
+lib/collect.rb	Sat, 17 Apr 2021 12:09:32 -0600
+lib/collect/engine.rb	Thu, 15 Apr 2021 10:15:09 -0600
+lib/collect/loader.rb	Fri, 16 Apr 2021 15:16:01 -0600
+lib/collect/version.rb	Thu, 15 Apr 2021 10:15:09 -0600
+lib/generators/collect/install_generator.rb	Fri, 16 Apr 2021 21:46:12 -0600
+lib/generators/collect/templates/forms_controller.rb	Fri, 16 Apr 2021 21:40:37 -0600
+lib/generators/collect/templates/odk_controller.rb	Sat, 17 Apr 2021 15:56:00 -0600

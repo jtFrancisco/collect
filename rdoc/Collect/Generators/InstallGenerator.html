@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Collect::Generators::InstallGenerator - Collect</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Rails::Generators::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-source_root">::source_root</a>
+    
+    <li ><a href="#method-i-copy_odk_controller">#copy_odk_controller</a>
+    
+    <li ><a href="#method-i-cors_code">#cors_code</a>
+    
+    <li ><a href="#method-i-generate_install">#generate_install</a>
+    
+    <li ><a href="#method-i-setup_rails_cors">#setup_rails_cors</a>
+    
+    <li ><a href="#method-i-setup_routes">#setup_routes</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Collect::Generators::InstallGenerator">
+  <h1 id="class-Collect::Generators::InstallGenerator" class="class">
+    class Collect::Generators::InstallGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-source_root" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">source_root</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="source_root-source">
+            <pre>  <span class="ruby-comment"># File lib/generators/collect/install_generator.rb</span>
+<span class="line-num">7</span> <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">source_root</span>
+<span class="line-num">8</span>   <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../templates&#39;</span>, <span class="ruby-keyword">__FILE__</span>)
+<span class="line-num">9</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-copy_odk_controller" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_odk_controller</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_odk_controller-source">
+            <pre>   <span class="ruby-comment"># File lib/generators/collect/install_generator.rb</span>
+<span class="line-num">56</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">copy_odk_controller</span>
+<span class="line-num">57</span>   <span class="ruby-identifier">copy_file</span> <span class="ruby-string">&#39;odk_controller.rb&#39;</span>, <span class="ruby-string">&#39;app/controllers/collect/odk_controller.rb&#39;</span>
+<span class="line-num">58</span>   <span class="ruby-identifier">copy_file</span> <span class="ruby-string">&#39;forms_controller.rb&#39;</span>, <span class="ruby-string">&#39;app/controllers/collect/forms_controller.rb&#39;</span>
+<span class="line-num">59</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cors_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cors_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cors_code-source">
+            <pre>   <span class="ruby-comment"># File lib/generators/collect/install_generator.rb</span>
+<span class="line-num">23</span>       <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cors_code</span>
+<span class="line-num">24</span> <span class="ruby-identifier">&lt;&lt;RUBY</span>
+<span class="line-num">25</span> <span class="ruby-value">
+<span class="line-num">26</span>     ##################################
+<span class="line-num">27</span>     #### gem &#39;collect&#39; code begins
+<span class="line-num">28</span>     ## This config area works with rack-cors gem, and allows requests to the API
+<span class="line-num">29</span>     ## by any client provided that the request was requested by the app
+<span class="line-num">30</span>     #
+<span class="line-num">31</span>     ## This may not be necessary in Rails 6.
+<span class="line-num">32</span>     #
+<span class="line-num">33</span>     ## Another issue with Rails 6 is whitelisting the config.hosts in development.rb and production.rb
+<span class="line-num">34</span>     ## see this article: https://www.fngtps.com/2019/rails6-blocked-host/
+<span class="line-num">35</span>     ## In development.rb you can use:
+<span class="line-num">36</span>     ## config.hosts.clear
+<span class="line-num">37</span>     #
+<span class="line-num">38</span>     ## In production.rb you can:
+<span class="line-num">39</span>     ## Whitelist one hostname
+<span class="line-num">40</span>     ## config.hosts &lt;&lt; &quot;hostname&quot;
+<span class="line-num">41</span>     ## Whitelist a test domain
+<span class="line-num">42</span>     ## config.hosts &lt;&lt; /application\.local\Z/
+<span class="line-num">43</span> 
+<span class="line-num">44</span>     config.middleware.insert_before 0, Rack::Cors do
+<span class="line-num">45</span>       allow do
+<span class="line-num">46</span>         origins &#39;*&#39;
+<span class="line-num">47</span>         resource &#39;*&#39;, headers: :any, methods: [:get, :post, :options]
+<span class="line-num">48</span>       end
+<span class="line-num">49</span>     end
+<span class="line-num">50</span>     #### gem &#39;collect&#39; code ends
+<span class="line-num">51</span>     ##################################
+<span class="line-num">52</span> 
+<span class="line-num">53</span> </span><span class="ruby-identifier">RUBY</span>
+<span class="line-num">54</span>       <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_install" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_install</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_install-source">
+            <pre>   <span class="ruby-comment"># File lib/generators/collect/install_generator.rb</span>
+<span class="line-num">11</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_install</span>
+<span class="line-num">12</span>   <span class="ruby-identifier">rake</span> <span class="ruby-string">&#39;collect:install:migrations&#39;</span>
+<span class="line-num">13</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_rails_cors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_rails_cors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_rails_cors-source">
+            <pre>   <span class="ruby-comment"># File lib/generators/collect/install_generator.rb</span>
+<span class="line-num">19</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup_rails_cors</span>
+<span class="line-num">20</span>   <span class="ruby-identifier">inject_into_file</span> <span class="ruby-string">&quot;config/application.rb&quot;</span>, <span class="ruby-identifier">cors_code</span>, <span class="ruby-value">after:</span> <span class="ruby-string">&quot;class Application &lt; Rails::Application\n&quot;</span>
+<span class="line-num">21</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setup_routes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup_routes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup_routes-source">
+            <pre>   <span class="ruby-comment"># File lib/generators/collect/install_generator.rb</span>
+<span class="line-num">15</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">setup_routes</span>
+<span class="line-num">16</span>   <span class="ruby-identifier">route</span> <span class="ruby-string">&quot;mount Collect::Engine =&gt; &#39;/collect&#39;&quot;</span>
+<span class="line-num">17</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

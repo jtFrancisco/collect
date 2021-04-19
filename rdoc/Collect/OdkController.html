@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Collect::OdkController - Collect</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ApplicationController
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Collect::BaseOdkControllerActions</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-set_example">#set_example</a>
+    
+    <li ><a href="#method-i-submission">#submission</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Collect::OdkController">
+  <h1 id="class-Collect::OdkController" class="class">
+    class Collect::OdkController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-set_example" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_example</span><span
+            class="method-args">(record)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_example-source">
+            <pre>   <span class="ruby-comment"># File lib/generators/collect/templates/odk_controller.rb</span>
+<span class="line-num">33</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_example</span>(<span class="ruby-identifier">record</span>)
+<span class="line-num">34</span>   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=======================XML Object=======================&quot;</span>
+<span class="line-num">35</span>   <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;### XML Object: #{record}&quot;</span>
+<span class="line-num">36</span>   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;=======================XML Object=======================&quot;</span>
+<span class="line-num">37</span> 
+<span class="line-num">38</span>   <span class="ruby-identifier">e</span> = <span class="ruby-constant">Example</span>.<span class="ruby-identifier">new</span>()
+<span class="line-num">39</span>    <span class="ruby-identifier">e</span>.<span class="ruby-identifier">species</span> = <span class="ruby-identifier">record</span>[<span class="ruby-value">:species</span>]
+<span class="line-num">40</span>     <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:coordinates</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+<span class="line-num">41</span>       <span class="ruby-identifier">e</span>.<span class="ruby-identifier">coordinates</span> = {<span class="ruby-string">&quot;lat&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;0.0&quot;</span>, <span class="ruby-string">&quot;lng&quot;</span><span class="ruby-operator">=&gt;</span><span class="ruby-string">&quot;0.0&quot;</span>}
+<span class="line-num">42</span>     <span class="ruby-keyword">else</span>  
+<span class="line-num">43</span>       <span class="ruby-identifier">e</span>.<span class="ruby-identifier">coordinates</span> = <span class="ruby-identifier">set_coordinates</span>(<span class="ruby-identifier">record</span>)
+<span class="line-num">44</span>     <span class="ruby-keyword">end</span>
+<span class="line-num">45</span>     <span class="ruby-identifier">e</span>.<span class="ruby-identifier">metadata</span> = <span class="ruby-identifier">set_metadata</span>(<span class="ruby-identifier">record</span>)
+<span class="line-num">46</span>   <span class="ruby-identifier">e</span>
+<span class="line-num">47</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-submission" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">submission</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>!!!!! 
+Uncomment the before_action :check_auth if you have authentication set up.
+If you don&#39;t have authentication set up then anyone who knows your 
+domain will be able to get forms and send submissions to your app.
+!!!!!</pre>
+
+<p>before_action :check_auth</p>
+          
+          
+
+          
+          <div class="method-source-code" id="submission-source">
+            <pre>   <span class="ruby-comment"># File lib/generators/collect/templates/odk_controller.rb</span>
+<span class="line-num">14</span> <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">submission</span>
+<span class="line-num">15</span>   <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;controller odk application&quot;</span>
+<span class="line-num">16</span>   <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">method</span> <span class="ruby-operator">==</span> (<span class="ruby-string">&#39;POST&#39;</span>)
+<span class="line-num">17</span>     <span class="ruby-identifier">raw_file</span> = <span class="ruby-constant">Crack</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:xml_submission_file</span>].<span class="ruby-identifier">path</span>)).<span class="ruby-identifier">with_indifferent_access</span>
+<span class="line-num">18</span> 
+<span class="line-num">19</span>     <span class="ruby-identifier">model</span> = <span class="ruby-identifier">get_model</span>(<span class="ruby-identifier">raw_file</span>)
+<span class="line-num">20</span>     <span class="ruby-identifier">object</span> = <span class="ruby-identifier">get_values</span>(<span class="ruby-identifier">raw_file</span>)
+<span class="line-num">21</span>     <span class="ruby-identifier">record</span> = <span class="ruby-identifier">prepare_object</span>(<span class="ruby-identifier">model</span>, <span class="ruby-identifier">object</span>)
+<span class="line-num">22</span> 
+<span class="line-num">23</span>     <span class="ruby-identifier">response</span> = <span class="ruby-identifier">record</span>.<span class="ruby-identifier">save</span> <span class="ruby-operator">?</span> <span class="ruby-value">201</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>
+<span class="line-num">24</span>     <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+<span class="line-num">25</span>       <span class="ruby-identifier">format</span>.<span class="ruby-identifier">xml</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">status:</span> <span class="ruby-identifier">response</span> }
+<span class="line-num">26</span>     <span class="ruby-keyword">end</span>
+<span class="line-num">27</span>   <span class="ruby-keyword">else</span>
+<span class="line-num">28</span>     <span class="ruby-identifier">render</span> <span class="ruby-value">status:</span> <span class="ruby-value">204</span>
+<span class="line-num">29</span>   <span class="ruby-keyword">end</span>
+<span class="line-num">30</span> <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
