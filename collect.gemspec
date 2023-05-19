@@ -21,7 +21,8 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency 'rack-cors'
-  spec.add_dependency "rails", "~> 6.1.3", ">= 6.1.3.1"
+  # spec.add_dependency "rails", "~> 6.1.3", ">= 6.1.3.1"
   # spec.add_dependency "rails", ">= 5.2.2"
+  spec.add_dependency 'rails', '~> 7.0.4', '>= 7.0.4.3'
   spec.add_dependency 'responders'
 end
