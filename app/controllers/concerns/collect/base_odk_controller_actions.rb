@@ -18,9 +18,10 @@ module Collect
     ## views/collect/odk/index.xml.erb 
     def index
       @forms = Collect::Form.all
-      respond_to do |format|
-        format.xml { render 'index.xml' }
-      end
+      
+      # respond_to do |format|
+      #   format.xml { render 'index.xml' }
+      # end
     end
 
     ## The show action lets ODK Collect download the xml form from your server
@@ -31,6 +32,7 @@ module Collect
     ## See the ODK Collec docs here for more info: https://docs.getodk.org/openrosa-form-list/
     def show
       doc = Collect::Form.find(params[:id])
+      Rails.logger.debug("\n\n***** #{doc} *****\n\n")
       send_data doc.document.download, filename: doc.document.filename.to_s, content_type: doc.document.content_type
     end
 

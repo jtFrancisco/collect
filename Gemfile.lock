@@ -3,7 +3,7 @@ PATH
   specs:
     collect (0.1.0)
       rack-cors
-      rails (~> 7.0.4, >= 7.0.4.3)
+      rails (>= 5.2.2)
       responders
 
 GEM
