@@ -12,7 +12,8 @@ module Collect
     # before_action :check_auth
 
     def submission
-      puts "odk_controller#submission"
+      puts 'odk_controller#submission'
+
       if request.method == ('POST')
         raw_file = Crack::XML.parse(File.read(params[:xml_submission_file].path)).with_indifferent_access
 
