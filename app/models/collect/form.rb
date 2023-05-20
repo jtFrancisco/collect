@@ -2,7 +2,7 @@ module Collect
   class Form < ApplicationRecord
 
     ## TO DO: add a callback that saves the updated_at in an array to populate xml forms w/ versions with:
-    ## listAllVersions 
+    ## listAllVersions
     ## see: https://docs.getodk.org/openrosa-form-list/
 
     ## Each form has: name, description, and .xml document attached with Active Storage
@@ -23,11 +23,10 @@ module Collect
 
     private
 
-      def correct_document_mime_type
-        if !document.attached? || !document.content_type.in?(%w(application/xml))
-          errors.add(:document, 'invalid! The file must be an XML file.')
-        end
+    def correct_document_mime_type
+      if !document.attached? || !document.content_type.in?(%w(application/xml))
+        errors.add(:document, 'invalid! The file must be an XML file.')
       end
-
+    end
   end
 end
