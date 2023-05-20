@@ -34,7 +34,7 @@ module Collect
     ## The file from: /test/fixtures/files/tree_survey.xml
 
     def index
-      @forms = Form.order(created_at: :desc)        
+      @forms = Form.order(created_at: :desc)
     end
 
     def show
@@ -48,10 +48,10 @@ module Collect
     def create
       @form = Form.new(form_params)
       if @form.save
-        flash[:notice] = "Form was saved."
+        flash[:notice] = 'Form was saved.'
         redirect_to form_path(@form)
       else
-        flash[:notice] = "Form could not be saved."
+        flash[:notice] = 'Form could not be saved.'
         render 'new'
       end
     end
@@ -63,10 +63,10 @@ module Collect
     def update
       @form = Form.find(params[:id])
       if @form.update(form_params)
-        flash[:notice] = "Form was updated."
+        flash[:notice] = 'Form was updated.'
         redirect_to form_path(@form)
       else
-        flash[:notice] = "Form could not be updated."
+        flash[:notice] = 'Form could not be updated.'
         render 'edit'
       end
     end
@@ -74,24 +74,23 @@ module Collect
     def destroy
       @form = Form.find(params[:id])
       @form.destroy
-      if @form.destroy      
-        flash[:notice] = "Form was destroyed."
+      if @form.destroy
+        flash[:notice] = 'Form was destroyed.'
         redirect_to forms_path
       else
-        flash[:notice] = "Form could not be destroyed."
+        flash[:notice] = 'Form could not be destroyed.'
         redirect_to form_path(@form)
       end
     end
 
     private
 
-      def form_params
-        params.require(:form).permit(
-          :name,
-          :description,
-          :document
-        )
-      end
-
+    def form_params
+      params.require(:form).permit(
+        :name,
+        :description,
+        :document
+      )
+    end
   end
 end

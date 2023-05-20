@@ -11,14 +11,14 @@ module Collect
     ## See this line in config/routes: get 'formList', to: 'odk#index', as: :odk, defaults: { format: 'xml' }
     ## It works like this:
     ## When a user selects "Get forms" in ODK Collect, ODK Collect sends a get request to this action
-    ## Each form in the list of foms has a <downloadUrl/> tag 
+    ## Each form in the list of foms has a <downloadUrl/> tag
     ## This tag lets ODK Collect know to look for the xml document in the show action below when the user clicks "Download blank forms" in ODK Collect
     #
     ## To see the xml layout of each form see:
-    ## views/collect/odk/index.xml.erb 
+    ## views/collect/odk/index.xml.erb
     def index
       @forms = Collect::Form.all
-      
+
       # respond_to do |format|
       #   format.xml { render 'index.xml' }
       # end
@@ -32,12 +32,11 @@ module Collect
     ## See the ODK Collec docs here for more info: https://docs.getodk.org/openrosa-form-list/
     def show
       doc = Collect::Form.find(params[:id])
-      Rails.logger.debug("\n\n***** #{doc} *****\n\n")
       send_data doc.document.download, filename: doc.document.filename.to_s, content_type: doc.document.content_type
     end
 
     def submission
-      ## This submissions method is replaced by the 'submission' method in: 
+      ## This submissions method is replaced by the 'submission' method in:
       ## lib/generators/collect/templates/odk_controller.rb
 
       if request.method.eql?('POST')
@@ -65,10 +64,9 @@ module Collect
 
     private
 
-      def set_header
-        response.headers['X-OpenRosa-Version'] = '1'
-        response.headers['Content-Type'] = 'text/xml; charset=utf-8'
-      end
-
+    def set_header
+      response.headers['X-OpenRosa-Version'] = '1'
+      response.headers['Content-Type'] = 'text/xml; charset=utf-8'
+    end
   end
 end
